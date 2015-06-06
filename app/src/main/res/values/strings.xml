@@ -3,4 +3,7 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="quote">“To be everywhere is to be nowhere.”</string>
+    <string name="focusModeText">Do not disturb</string>
+    <string name="nonFocusModeText">Oh look, a squirrel!</string>
 </resources>

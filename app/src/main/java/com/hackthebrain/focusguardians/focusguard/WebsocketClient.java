@@ -53,10 +53,22 @@ public class WebsocketClient extends WebSocketClient {
     @Override
     public void onClose(int i, String s, boolean b) {
         Log.i("Websocket", "Closed " + s);
+        activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                activity.stopGuarding();
+            }
+        });
     }
 
     @Override
     public void onError(Exception e) {
         Log.i("Websocket", "Error " + e.getMessage());
+        activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                activity.stopGuarding();
+            }
+        });
     }
 }

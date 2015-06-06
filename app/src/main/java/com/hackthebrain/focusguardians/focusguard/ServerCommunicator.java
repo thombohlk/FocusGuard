@@ -9,8 +9,7 @@ import java.util.ArrayList;
  */
 public class ServerCommunicator
 {
-
-    protected WebSocketClient mWebSocketClient;
+    protected WebSocketClient websocket;
     protected ArrayList<MainActivity> listeners;
 
     public ServerCommunicator()
@@ -30,57 +29,17 @@ public class ServerCommunicator
 
     public void stopListeningToServer()
     {
-        if (mWebSocketClient != null) {
-            mWebSocketClient.close();
+        if (websocket != null) {
+            websocket.close();
         }
     }
 
     protected void connectWebSocket()
     {
-//        URI uri;
-//        try {
-//            uri = new URI(WEBSOCKET_ADDRESS);
-//        } catch (URISyntaxException e) {
-//            e.printStackTrace();
-//            return;
-//        }
-//
-//        mWebSocketClient = new WebSocketClient(uri, new Draft_17())
-//        {
-//            @Override
-//            public void onOpen(ServerHandshake serverHandshake) {
-//                Log.i("Websocket", "Opened");
-//                mWebSocketClient.send("Hello from " + Build.MANUFACTURER + " " + Build.MODEL);
-//            }
-//
-//            @Override
-//            public void onMessage(String s) {
-//                final String message = s;
-//                boolean isFocussed = false;
-//
-//                if (message.equals("isFocussed")) {
-//                    isFocussed = true;
-//                }
-//
-//                for (MainActivity listener : listeners) {
-//                    listener.changeFocusState(isFocussed);
-//                }
-//            }
-//
-//            @Override
-//            public void onClose(int i, String s, boolean b) {
-//                Log.i("Websocket", "Closed " + s);
-//            }
-//
-//            @Override
-//            public void onError(Exception e) {
-//                Log.i("Websocket", "Error " + e.getMessage());
-//            }
-//        };
-        mWebSocketClient.connect();
+        websocket.connect();
     }
 
     public void setWebsocket(WebsocketClient websocket) {
-        this.mWebSocketClient = websocket;
+        this.websocket = websocket;
     }
 }

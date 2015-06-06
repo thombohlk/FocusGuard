@@ -7,7 +7,7 @@ import android.media.AudioManager;
  */
 public class InterruptionController
 {
-    protected int preFocusMode;
+    protected Integer preFocusMode;
     protected AudioManager audioManager;
 
     public void setInterruptionMode(boolean isFocused)
@@ -16,7 +16,9 @@ public class InterruptionController
             preFocusMode = audioManager.getRingerMode();
             audioManager.setRingerMode(AudioManager.RINGER_MODE_SILENT);
         } else {
-            audioManager.setRingerMode(preFocusMode);
+            if (preFocusMode != null) {
+                audioManager.setRingerMode(preFocusMode);
+            }
         }
     }
 
