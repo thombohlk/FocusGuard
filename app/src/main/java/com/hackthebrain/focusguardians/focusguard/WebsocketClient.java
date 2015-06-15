@@ -1,8 +1,8 @@
 package com.hackthebrain.focusguardians.focusguard;
 
-import android.app.Activity;
 import android.os.Build;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.drafts.Draft;
@@ -67,6 +67,7 @@ public class WebsocketClient extends WebSocketClient {
         activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                Toast.makeText(activity.getApplicationContext(), "Connection to server failed", Toast.LENGTH_SHORT).show();
                 activity.stopGuarding();
             }
         });
